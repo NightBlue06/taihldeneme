@@ -1,8 +1,15 @@
 # PyCharm klasörü
 .idea
 
---pycache--
+# Python ön bellek klsörü
+__pycache__
 
 # log dosyaları
 logs
 *.log
+
+# Veritabanları
+*.db
+
+# Ayarlar dosyamız
+ayarlar.py
