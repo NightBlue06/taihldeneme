@@ -21,6 +21,8 @@ while True:
     cevap = input("""Lütfen yapılacak işlemi seçin:
     1. Öğrenci ekle
     2. Öğrenci düzenle
+    3. Öğrencileri Listele
+    4. Öğrenci sil
     0. Çıkış
     """)
 
@@ -48,6 +50,19 @@ while True:
         imlec.execute(f"UPDATE ogrenciler SET notlar = '{notlar}' WHERE ad = '{ad}'")
         baglanti.commit()
 
+    # Öğrencileri listeleme
+    elif cevap == "3":
+        imlec.execute("SELECT * FROM ogrenciler")
+
+        ogrenciler = imlec.fetchall()
+        for ogrenci in ogrenciler:
+            print(ogrenci)
+
+    # Öğrencileri sil
+    elif cevap == "4":
+        ad = input("Silinecek öğrencinin adı: ")
+        imlec.execute(f"DELETE FROM ogrenciler WHERE ad = '{ad}'")
+        baglanti.commit()
 
 # İşlemleri kaydedelim
 baglanti.commit()
